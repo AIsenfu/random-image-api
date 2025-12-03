@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script>
+    // 加载配置文件中的图片列表
+    fetch('config.json')
+      .then(response => response.json())
+      .then(data => {
+        const images = data.images;
+        // 随机选择一张图片
+        const randomImg = images[Math.floor(Math.random() * images.length)];
+        // 直接重定向到图片（调用方访问该HTML即可得到随机图片）
+        window.location.href = randomImg;
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
+</body>
+</html>
